@@ -1,13 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import {MatSidenavModule} from '@angular/material/sidenav';
-
-
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
+import {AppComponent} from './app.component';
+import {HomeModule} from './home/home.module';
+
+const routes:Routes = [
+  {path: 'home', loadChildren: () => HomeModule},
+  {path: '**', redirectTo: 'home'}
+];
 
 @NgModule({
   declarations: [
@@ -15,17 +17,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule,
     BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
