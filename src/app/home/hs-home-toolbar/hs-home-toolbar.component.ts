@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-hs-home-toolbar',
+  selector: 'hs-home-toolbar',
   template: `
-    <p>
-      hs-home-toolbar works!
-    </p>
+    <mat-toolbar color="primary" style="height: 40px">
+      Heritage Sports
+    </mat-toolbar>
   `,
   styles: []
 })
