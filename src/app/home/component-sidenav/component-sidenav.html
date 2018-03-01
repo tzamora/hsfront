@@ -1,7 +1,7 @@
 <mat-sidenav-container class="docs-component-viewer-sidenav-container">
   <!-- If on small screen, menu resides in drawer -->
   <mat-sidenav #sidenav class="docs-component-viewer-sidenav"
-              *ngIf="isScreenSmall()"
+
               [opened]="!isScreenSmall()"
               [mode]="isScreenSmall() ? 'over' : 'side'"
               [fixedInViewport]="isScreenSmall()"

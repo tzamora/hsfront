@@ -35,11 +35,11 @@ export class ComponentSidenav implements OnInit {
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   ngOnInit() {
-    this._router.events.subscribe(() => {
-      if (this.isScreenSmall()) {
-        this.sidenav.close();
-      }
-    });
+    // this._router.events.subscribe(() => {
+    //   if (this.isScreenSmall()) {
+    //     this.sidenav.close();
+    //   }
+    // });
 
     // Combine params from all of the path into a single object.
     // this.params = combineLatest(
@@ -82,139 +82,6 @@ export class ComponentNav implements OnInit, OnDestroy {
   ngOnDestroy() {
     this._onDestroy.next();
     this._onDestroy.complete();
-  }
-
-  /** Set the expansions based on the route url */
-  setExpansions(params: Params) {
-    const categories = [
-      {
-        id: 'forms',
-        name: 'Form Controls',
-        items: [
-          {id: 'autocomplete', name: 'Autocomplete', examples: ['autocomplete-overview']},
-          {id: 'checkbox', name: 'Checkbox', examples: ['checkbox-configurable']},
-          {
-            id: 'datepicker',
-            name: 'Datepicker',
-            examples: [
-              'datepicker-overview',
-              'datepicker-start-view',
-              'datepicker-value',
-              'datepicker-min-max',
-              'datepicker-filter',
-              'datepicker-events',
-              'datepicker-disabled',
-              'datepicker-touch',
-              'datepicker-api',
-              'datepicker-locale',
-              'datepicker-moment',
-              'datepicker-formats',
-
-            ]
-          },
-          {
-            id: 'form-field',
-            name: 'Form field',
-            examples: [
-              'form-field-overview',
-              'form-field-label',
-              'form-field-hint',
-              'form-field-error',
-              'form-field-prefix-suffix',
-              'form-field-theming',
-              'form-field-custom-control',
-            ]
-          },
-          {
-            id: 'input',
-            name: 'Input',
-            examples: [
-              'input-overview',
-              'input-error-state-matcher',
-              'input-autosize-textarea',
-              'input-clearable',
-              'input-errors',
-              'input-form',
-              'input-hint',
-              'input-prefix-suffix',
-            ]
-          },
-          {id: 'radio', name: 'Radio button', examples: ['radio-ng-model']},
-          {
-            id: 'select',
-            name: 'Select',
-            examples: [
-              'select-overview',
-              'select-value-binding',
-              'select-form',
-              'select-hint-error',
-              'select-disabled',
-              'select-reset',
-              'select-optgroup',
-              'select-multiple',
-              'select-custom-trigger',
-              'select-no-ripple',
-              'select-panel-class',
-              'select-error-state-matcher',
-            ]
-          },
-          {id: 'slider', name: 'Slider', examples: ['slider-configurable']},
-          {id: 'slide-toggle', name: 'Slide toggle', examples: ['slide-toggle-configurable']},
-        ]
-      },
-      {
-        id: 'nav',
-        name: 'Navigation',
-        summary: 'Sidenavs, toolbars, menus',
-        items: [
-          {id: 'menu', name: 'Menu', examples: ['menu-icons']},
-          {
-            id: 'sidenav',
-            name: 'Sidenav',
-            examples: [
-              'sidenav-overview',
-              'sidenav-drawer-overview',
-              'sidenav-position',
-              'sidenav-open-close',
-              'sidenav-mode',
-              'sidenav-disable-close',
-              'sidenav-autosize',
-              'sidenav-fixed',
-              'sidenav-responsive'
-            ]
-          },
-          {id: 'toolbar', name: 'Toolbar', examples: ['toolbar-multirow']},
-        ]
-      },
-      {
-        id: 'layout',
-        name: 'Layout',
-        items: [
-          {id: 'card', name: 'Card', examples: ['card-fancy']},
-          {id: 'divider', name: 'Divider', examples: ['divider-overview']},
-          {id: 'expansion', name: 'Expansion Panel',
-            examples: ['expansion-overview', 'expansion-steps']},
-          {id: 'grid-list', name: 'Grid list', examples: ['grid-list-dynamic']},
-          {id: 'list', name: 'List', examples: ['list-sections']},
-          {id: 'stepper', name: 'Stepper', examples: ['stepper-overview']},
-          {id: 'tabs', name: 'Tabs', examples: ['tabs-template-label']},
-        ]
-      }];
-
-    for (const category of categories) {
-      if (this.expansions[category.id] === true) {
-        continue;
-      }
-
-      let match = false;
-      for (const item of category.items) {
-        if (this._router.url.indexOf(item.id) > -1) {
-          match = true;
-          break;
-        }
-      }
-      this.expansions[category.id] = match;
-    }
   }
 
   /** Gets the expanded state */
