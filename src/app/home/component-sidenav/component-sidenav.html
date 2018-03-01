@@ -6,17 +6,29 @@
               [mode]="isScreenSmall() ? 'over' : 'side'"
               [fixedInViewport]="isScreenSmall()"
               fixedTopGap="92">
+
+    esto de aca se ve en algun momento
+
+
     <app-component-nav></app-component-nav>
+
+
   </mat-sidenav>
   <div class="docs-component-sidenav-content">
-    <!--<component-page-header (toggleSidenav)="sidenav.toggle()"></component-page-header>-->
+
     <div class="docs-component-sidenav-inner-content">
       <div class="docs-component-sidenav-body-content">
         <!-- If on large screen, menu resides to left of content -->
+
+        este es el contenido cuando la vara esta expandida
+
         <app-component-nav
           *ngIf="!isScreenSmall()">
         </app-component-nav>
-        <router-outlet></router-outlet>
+
+        <button mat-button>Click me!</button>
+
+
       </div>
       <!--<app-footer></app-footer>-->
     </div>
